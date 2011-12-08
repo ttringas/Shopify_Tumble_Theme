@@ -1,0 +1,21 @@
+; config file for shopify.tmbundle 
+; You can now setup multiple shops. Just follow the pattern you see below.
+; You can have more than 2 (as many as you want really)
+; this config uses ini style http://php.net/manual/en/function.parse-ini-file.php
+; you can just change the settings under default, and everything should work.
+; or you can do things the old way as well.
+
+; this is the currently active shop. you can change it here
+use="default"
+
+; my development shop
+[default]
+api_key="2cfe0a18472610ec91ab26902af2f2bc"
+password="852206f5125a17153ba342fce1d183f6"
+store="stiedemann-ziemann-and-witting4358.myshopify.com"
+
+; and the live shop
+;[live]
+;api_key="xxxxxxxxxxxxxxxxxxxxxx"
+;password="yyyyyyyyyyyyyyyyyyyyyyy"
+;store="shopname.myshopify.com"
