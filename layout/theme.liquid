@@ -34,7 +34,7 @@
     
     <!-- jQuery and jQuery fallback -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-		{{ "tabs.js" | asset_url | script_tag }}
+		{{ "masonry.js" | asset_url | script_tag }}
 
 	</head>
   <body>
@@ -54,7 +54,7 @@
         <ul>
           <li><span class="contact_bar_label">Phone </span><a href="tel:1{{ settings.shop_phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}" class="phone_link">{{ settings.shop_phone }}</a></li>
           <li><span class="contact_bar_label">Email </span><a href="mailto:{{ settings.shop_email }}?subject=hi" class="email_link">{{ settings.shop_email | escape }}</a></li>
-          <li><span class="contact_bar_label">Our Store </span><a href="http://maps.google.com/maps?q={{ settings.shop_addr | replace: ' ', '+' }}" class="maps_link" target="_blank">{{ settings.shop_addr | escape }}</a></li>
+          <li><span class="contact_bar_label">Local </span><a href="http://maps.google.com/maps?q={{ settings.shop_addr | replace: ' ', '+' }}" class="maps_link" target="_blank">{{ settings.shop_addr | escape }}</a></li>
         </ul>
       </div><!-- #contact_bar -->
         <div class="sixteen columns clearfix">    
@@ -69,25 +69,22 @@
           </div>
         </div>
       {{ content_for_layout }}
-      </div><!-- #right_col_frontpage -->
       <div id="footer">
         <div id="footer_row_1" class="sixteen columns clearfix">
           <div id="collections_list_footer" class="five columns ">
             <h3>Finding your way around</h3>
             <ul>
-              <li>Home</li>
-              <li>Collection 1</li>
-              <li>Collection 2</li>
-              <li>Collection 3</li>
-              <li>Collection 4</li>
+              {% for link in linklists.main-menu.links %}
+              <li><a href="{{ link.url }}" title="{{ link.title | escape }}">{{ link.title | escape }}</a></li>                
+              {% endfor %}
             </ul>
           </div><!-- #collections_list_footer -->
           <div id="contact_info" class="five columns omega">
             <h3>Keep in touch</h3>
             <ul>
-              <li>Email hi@myshop.com</li>
-              <li>Phone (000) 000-0000</li>
-              <li>Local 123 Nowhereville St NY, NY</li>
+              <li><span class="cantact_info_label">Email </span><a href="tel:1{{ settings.shop_phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}" class="phone_link">{{ settings.shop_phone }}</a></li>
+              <li><span class="cantact_info_label">Phone </span><a href="mailto:{{ settings.shop_email }}?subject=hi" class="email_link">{{ settings.shop_email | escape }}</a></li>
+              <li><span class="cantact_info_label">Local </span><a href="http://maps.google.com/maps?q={{ settings.shop_addr | replace: ' ', '+' }}" class="maps_link" target="_blank">{{ settings.shop_addr | escape }}</a></li>
             </ul>
           </div><!-- #contact_info -->
           <div id="social" class="three columns alpha">
@@ -106,11 +103,11 @@
         <div id="footer_row_2" class="sixteen columns clearfix">
           <div id="payments" class="one-third column alpha">
             <ul>
-              <li><img src="http://placehold.it/40x20" width="40" height="20" alt="" /></li>
-              <li><img src="http://placehold.it/40x20" width="40" height="20" alt="" /></li>
-              <li><img src="http://placehold.it/40x20" width="40" height="20" alt="" /></li>
-              <li><img src="http://placehold.it/40x20" width="40" height="20" alt="" /></li>
-              <li><img src="http://placehold.it/40x20" width="40" height="20" alt="" /></li>
+              {% if settings.show_mastercard == true %}<li>{{ 'icon-mastercard.png' | asset_url | img_tag }}</li>{% endif %}
+              {% if settings.show_visa == true %}<li>{{ 'icon-visa.png' | asset_url | img_tag }}</li>{% endif %}
+              {% if settings.show_paypal == true %}<li>{{ 'icon-paypal.png' | asset_url | img_tag }}</li>{% endif %}
+              {% if settings.show_amex == true %}<li>{{ 'icon-ae.png' | asset_url | img_tag }}</li>{% endif %}
+              {% if settings.show_discover == true %}<li>{{ 'icon-discover.png' | asset_url | img_tag }}</li>{% endif %}
             </ul>
           </div><!-- #payments -->
           <div id="shipping" class="one-third column">
@@ -125,14 +122,13 @@
         </div><!-- #footer_row_2 -->
         <div id="footer_row_3" class="sixteen columns clearfix">
           <div id="copyright" class="one-third column alpha">
-            <p>copyright my store 2011</p>
+            <p>&copy; {{ shop.name | escape }} {{ 'now' | date: "%Y" }}</p>
           </div><!-- #copyright -->
-          <div id="nav_footer" class="two-thirds column omega">
+          <div id="nav_footer" class="two-thirds column omega">            
             <ul>
-              <li>Returns</li>
-              <li>Privacy Policy</li>
-              <li>FAQ</li>
-              <li>Support</li>
+              {% for link in linklists.footer.links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
             </ul>
           </div><!-- #footer_row_3 -->
       </div>

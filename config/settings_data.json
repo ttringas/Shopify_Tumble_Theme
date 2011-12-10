@@ -2,7 +2,7 @@
   {"Grey/Red":
     {"customer_layout": "theme",
      "product_tags": true,
-     "show_mastercard": true,
+     "mastercard": true,
      "regular_font": "Helvetica, Arial, sans-serif",
      "secondary_button_bg_color": "#515151",
      "mid_background_color": "#ffffff",
