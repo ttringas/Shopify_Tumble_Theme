@@ -31,12 +31,12 @@
 	<legend>Home Page</legend>
   <table>
    <tr>
-    	  <td><label for="home_collections_featured">Feature collections on home page?</label></td>
-		  <td><input type="checkbox" id="home_collections_featured" name="home_collections_featured" value="0" /></td>
+    	  <td><label for="message_bar_frontpage">Show Message box above tumble? <small>(This is where you can add custom text or images above the tumble but below the carousel)</small></label></td>
+		  <td><input type="checkbox" id="message_bar_frontpage" name="message_bar_frontpage" value="0" /></td>
 	</tr>
     <tr>
-          <td><label for="home_collections_featured_linklist">What linklist shows your featured collections?</label></td>
-          <td><select id="home_collections_featured_linklist" class="linklist" name="home_collections_featured_linklist" value="None" /></td>
+          <td><label for="message_bar_frontpage_page">What page contains the content for the message box?</label></td>
+          <td><select id="message_bar_frontpage_page" class="page" name="message_bar_frontpage_page" value="None" /></td>
     </tr>
     <tr>
 		  <td><label for="home_banner">Enable homepage banner?</label></td>
@@ -305,19 +305,52 @@
 <fieldset>
   <legend>Shop Info</legend>
   <table>
+     <tr>
+	      <td><label for="show_email">Show contact email?</label></td>
+	      <td><input type="checkbox" id="show_email" name="show_email" data-max-height="135" data-max-width="480"/></td>
+	    </tr>
     <tr>
       <td><label for="shop_email">Your shop email</label></td>
 		  <td><input type="text" id="shop_email" name="shop_email" class="text" value=""/></td>
     </tr>
     <tr>
+	      <td><label for="show_phone">Show contact phone number?</label></td>
+	      <td><input type="checkbox" id="show_phone" name="show_phone" data-max-height="135" data-max-width="480"/></td>
+	    </tr>
+    <tr>
       <td><label for="shop_phone">Your phone number: Use format (800) 123-4567</label></td>
 		  <td><input type="text" id="shop_phone" name="shop_phone" class="text" value=""/></td>
     </tr>
     <tr>
+	      <td><label for="show_addr">Show contact address?</label></td>
+	      <td><input type="checkbox" id="show_addr" name="show_addr" data-max-height="135" data-max-width="480"/></td>
+	    </tr>
+    
+    <tr>
       <td><label for="shop_addr">Your shop physical address</label></td>
 		  <td><input type="text" id="shop_addr" name="shop_addr" class="text" value=""/></td>
     </tr>
-    
+  </table>
+</fieldset>
+<fieldset>
+  <legend>Social</legend>
+  <table>
+     <tr>
+	      <td><label for="show_tweet">Show tweet button?</label></td>
+	      <td><input type="checkbox" id="show_tweet" name="show_tweet" data-max-height="135" data-max-width="480"/></td>
+	    </tr>
+    <tr>
+      <td><label for="shop_twitter">Your twitter handle (after the "@" symbol)</label></td>
+		  <td><input type="text" id="shop_twitter" name="shop_twitter" class="text" value=""/></td>
+    </tr>
+    <tr>
+	      <td><label for="show_fb">Show facebook like button?</label></td>
+	      <td><input type="checkbox" id="show_fb" name="show_fb" data-max-height="135" data-max-width="480"/></td>
+	    </tr>
+    <tr>
+	      <td><label for="show_plusone">Show google plus one button?</label></td>
+	      <td><input type="checkbox" id="show_plusone" name="show_plusone" data-max-height="135" data-max-width="480"/></td>
+	    </tr>
   </table>
 </fieldset>
 

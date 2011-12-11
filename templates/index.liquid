@@ -3,14 +3,19 @@
 </div><!-- #slider_frontpage -->
 
 <div class="sixteen columns clearfix right_col_frontpage">
+  {% if settings.message_bar_frontpage %}
   <div id="message_bar_frontpage">
-    {{ pages.right-col-frontpage-message-box.content }}
+    {{ pages.[settings.message_bar_frontpage_page].content }}
   </div><!-- #message_bar_frontpage -->
+  {% endif %}
   <div id="collection_frontpage">
     {% for link in linklists.front-page.links %}
       <div class="product_frontpage">
       {% if link.type == 'product_link' %}
       <img src="{{ link.object.featured_image | product_img_url: 'large' }}" >
+      <span class="product_title">{{ link.object.title }}</span>
+      <span class="product_price">{{ link.object.price | money }}</span>
+      <span class="product_more"><a href="{{ link.object.url }}" title="see more detail on {{ link.object.title }}">View</a></span>
       {% elsif link.type == 'page_link' %}
       <span class="front_page_quote">{{ link.object.content }}</span>
       {% endif %}
