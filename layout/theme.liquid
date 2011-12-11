@@ -14,13 +14,14 @@
 		<!-- Mobile Specific Metas -->
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
     {{ content_for_header }}    
 		<!-- Stylesheets -->
     {{ "base.css" | asset_url | stylesheet_tag }}
     {{ "skeleton.css" | asset_url | stylesheet_tag }}
     {{ "layout.css" | asset_url | stylesheet_tag }}
     {{ "style.css" | asset_url | stylesheet_tag }}
+    {{ "fancy.css" | asset_url | stylesheet_tag }}
 		<!-- Icons -->
 		<link rel="shortcut icon" type="image/x-icon" href="">
     <link rel="apple-touch-icon" sizes="57x57" href="">
@@ -35,6 +36,8 @@
     <!-- jQuery and jQuery fallback -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
 		{{ "masonry.js" | asset_url | script_tag }}
+		{{ "jquery.easing.1.3.js" | asset_url | script_tag }}
+		{{ "fancybox.js" | asset_url | script_tag }}
 
 	</head>
   <body>

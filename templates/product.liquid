@@ -2,7 +2,7 @@
     <div id="added-box"></div>
 </div>
 
-<div id="product-photos">
+<div id="product-photos" class="eight columns alpha">
     <div class="first-image">
         <a href="{{ product.images.first | product_img_url: 'large' }}" class="fancybox" ><img src="{{ product.images.first | product_img_url: 'medium' }}"  /></a>
     </div>
@@ -14,7 +14,7 @@
 </div>
 
 
-<div id="product-description">
+<div id="product-description" class="eight columns omega">
   
 	<h2 class="title">{{ product.title | escape }}</h2>  
 	
@@ -67,7 +67,11 @@
 	
 </div>
 
-
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+</script>
 
 <script type="text/javascript">
 // <![CDATA[  
