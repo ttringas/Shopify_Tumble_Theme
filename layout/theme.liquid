@@ -20,8 +20,10 @@
     {{ "base.css" | asset_url | stylesheet_tag }}
     {{ "skeleton.css" | asset_url | stylesheet_tag }}
     {{ "layout.css" | asset_url | stylesheet_tag }}
-    {{ "style.css" | asset_url | stylesheet_tag }}
     {{ "fancy.css" | asset_url | stylesheet_tag }}
+    {{ "flexslider.css" | asset_url | stylesheet_tag }}
+    {{ "style.css" | asset_url | stylesheet_tag }}
+
 		<!-- Icons -->
 		<link rel="shortcut icon" type="image/x-icon" href="">
     <link rel="apple-touch-icon" sizes="57x57" href="">
@@ -38,6 +40,14 @@
 		{{ "masonry.js" | asset_url | script_tag }}
 		{{ "jquery.easing.1.3.js" | asset_url | script_tag }}
 		{{ "fancybox.js" | asset_url | script_tag }}
+		{{ "jquery.flexslider-min.js" | asset_url | script_tag }}
+		
+    <!-- Initiate flexslider -->
+		<script type="text/javascript" charset="utf-8">
+      $(window).load(function() {
+        $('.flexslider').flexslider();
+      });
+    </script>
 
 	</head>
   <body>

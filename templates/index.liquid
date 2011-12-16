@@ -1,5 +1,11 @@
-<div class="sixteen columns slider_frontpage">
-  <img src="http://lorempixel.com/960/360/food" width="960" height="360" alt="" />
+<div class="sixteen columns flexslider slider_frontpage">
+  <ul class="slides">
+    <li>{{ "sliderimg1.jpg" | asset_url | img_tag }}</li>
+    <li>{{ "sliderimg2.jpg" | asset_url | img_tag }}</li>
+    <li>{{ "sliderimg3.jpg" | asset_url | img_tag }}</li>
+    <li>{{ "sliderimg4.jpg" | asset_url | img_tag }}</li>
+    <li>{{ "sliderimg5.jpg" | asset_url | img_tag }}</li>
+  </ul>
 </div><!-- #slider_frontpage -->
 
 <div class="sixteen columns clearfix right_col_frontpage">
