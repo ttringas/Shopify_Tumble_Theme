@@ -2,14 +2,14 @@
     <div id="added-box"></div>
 </div>
 
-<div id="product-photos" class="eight columns alpha">
-    <div class="first-image">
-        <a href="{{ product.images.first | product_img_url: 'large' }}" class="fancybox" ><img src="{{ product.images.first | product_img_url: 'medium' }}"  /></a>
+<div id="product-photos" class="eight columns">
+    <div id="first-image">
+        <a href="{{ product.images.first | product_img_url: 'large' }}"><img src="{{ product.images.first | product_img_url: 'large' }}"  /></a>
     </div>
-	<ul> 
+	<ul class="thumbnails"> 
 	{% for image in product.images %}
-    <li {% cycle '', "class='no-push'" %}><a href="{{ image | product_img_url: 'large' }}" class="fancybox" ><img  src="{{ image | product_img_url: 'small' }}" alt="{{ product.title | escape }}" /></a></li>
-    {% endfor %} 
+    <li class="two columns"><a href="{{ image | product_img_url: 'large' }}"><img  src="{{ image | product_img_url: 'large' }}" alt="{{ product.title | escape }}" /></a></li>
+  {% endfor %} 
 	</ul>
 </div>
 
@@ -66,12 +66,6 @@
 	
 	
 </div>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".fancybox").fancybox();
-	});
-</script>
 
 <script type="text/javascript">
 // <![CDATA[  

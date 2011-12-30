@@ -1,5 +1,5 @@
 <!--begin left-column--> 
-<div id="left-column">
+<div id="left-column" class="ten columns alpha">
 		
 	{% paginate blog.articles by 5 %}
 		{% for article in blog.articles %}
@@ -39,7 +39,7 @@
 <!--end left-column-->
 
 <!--begin right-column--> 
-<div id="right-column">
+<div id="right-column" class="six columns omega">
 	
 	<h2 class="right-column-heading"><a class="rss-icon" href="{{ blog.url }}.atom"><img src="{{ 'icon-rss.png' | asset_url }}" width="16" height="16" alt="RSS Feed"></a>Recent Posts</h2>
 	
