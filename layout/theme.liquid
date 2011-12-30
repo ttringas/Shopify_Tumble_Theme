@@ -97,14 +97,6 @@
             {% for link in linklists.main-menu.links %}
               <li><a href="{{ link.url }}" title="{{ link.title }}">
                 <span class="nav-label">{{ link.title }}</span></a>
-                {% capture child_list_handle %}{{ link.title | handleize }}{% endcapture %}
-                    {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
-                    <ul>
-                      {% for l in linklists[child_list_handle].links %}
-                      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
-                      {% endfor %}
-                    </ul>
-                    {% endif %}
               </li>
             {% endfor %}
             </ul>
@@ -113,43 +105,26 @@
       {{ content_for_layout }}
       <div id="footer">
         <div id="footer_row_1" class="sixteen columns clearfix">
-          <div id="contact_info" class="one-third column omega">
-            <h3>Keep in touch</h3>
+          <div class="sixteen columns contact_bar">
             <ul>
-              {% if settings.show_phone == true %}<li><span class="cantact_info_label">Phone </span><a href="tel:1{{ settings.shop_phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}" class="phone_link">{{ settings.shop_phone }}</a></li>{% endif %}
-              {% if settings.show_email == true %}<li><span class="cantact_info_label">Email </span><a href="mailto:{{ settings.shop_email }}?subject=hi" class="email_link">{{ settings.shop_email | escape }}</a></li>{% endif %}
-              {% if settings.show_addr == true %}<li><span class="cantact_info_label">Local </span><a href="http://maps.google.com/maps?q={{ settings.shop_addr | replace: ' ', '+' }}" class="maps_link" target="_blank">{{ settings.shop_addr | escape }}</a></li>{% endif %}
+              {% if settings.show_phone == true %}<li><span class="contact_bar_label">Phone </span><a href="tel:1{{ settings.shop_phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}" class="phone_link">{{ settings.shop_phone }}</a></li>{% endif %}
+              {% if settings.show_email == true %}<li><span class="contact_bar_label">Email </span><a href="mailto:{{ settings.shop_email }}?subject=hi" class="email_link">{{ settings.shop_email | escape }}</a></li>{% endif %}
+              {% if settings.show_addr == true %}<li><span class="contact_bar_label">Local </span><a href="http://maps.google.com/maps?q={{ settings.shop_addr | replace: ' ', '+' }}" class="maps_link" target="_blank">{{ settings.shop_addr | escape }}</a></li>{% endif %}
             </ul>
-          </div><!-- #contact_info -->
-          <div id="social" class="one-third column alpha">
-            <h3>Sharing is caring</h3>
-            <ul>
-              {% if settings.show_tweet == true %}<li><a href="https://twitter.com/share" class="twitter-share-button" data-via="{{ settings.shop_twitter }}" data-lang="en">Tweet</a></li>{% endif %}
-              {% if settings.show_fb == true %}<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>{% endif %}
-              {% if settings.show_plusone == true %}<li><g:plusone size="medium"></g:plusone></li>{% endif %}
-            </ul>
-          </div><!-- #social -->
-          <div id="blog_footer" class="one-third column">
-            <h3>Check out our blog</h3>
-            <img src="http://placehold.it/75x75" width="75" height="75" alt="" />
-          </div><!-- #blog_footer -->
+          </div><!-- #contact_bar -->
+          
         </div><!-- #footer_row_1 -->
         <div id="footer_row_2" class="sixteen columns clearfix">
-          <div id="payments" class="one-third column alpha">
-            <ul>
-              {% if settings.show_mastercard == true %}<li>{{ 'icon-mastercard.png' | asset_url | img_tag }}</li>{% endif %}
-              {% if settings.show_visa == true %}<li>{{ 'icon-visa.png' | asset_url | img_tag }}</li>{% endif %}
-              {% if settings.show_paypal == true %}<li>{{ 'icon-paypal.png' | asset_url | img_tag }}</li>{% endif %}
-              {% if settings.show_amex == true %}<li>{{ 'icon-ae.png' | asset_url | img_tag }}</li>{% endif %}
-              {% if settings.show_discover == true %}<li>{{ 'icon-discover.png' | asset_url | img_tag }}</li>{% endif %}
-            </ul>
-          </div><!-- #payments -->
-          <div id="shipping" class="one-third column">
-            <p>Shipping to the Lower 48 states</p> 
-          </div><!-- #shipping -->
-          <div id="newsletter" class="one-third column omega">
-            
-            
+             <div id="social" class="eight columns alpha">
+                <h3>Sharing is caring</h3>
+                <ul>
+                  {% if settings.show_tweet == true %}<li><a href="https://twitter.com/share" class="twitter-share-button" data-via="{{ settings.shop_twitter }}" data-lang="en">Tweet</a></li>{% endif %}
+                  {% if settings.show_fb == true %}<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>{% endif %}
+                  {% if settings.show_plusone == true %}<li><g:plusone size="medium"></g:plusone></li>{% endif %}
+                </ul>
+              </div><!-- #social -->
+          <div id="newsletter" class="eight columns omega">
+            <h3>Join our Newsletter</h3>
             <div id="mc_embed_signup">
             <form action="http://solarlist.us2.list-manage1.com/subscribe/post?u=535462c03be0e12f3a7dd7a34&amp;id=000b73eb17" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
             <div class="mc-field-group">
