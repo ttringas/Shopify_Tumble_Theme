@@ -24,32 +24,27 @@
 	{% if collection.products.size == 0 %}
 		<strong>No products found in this collection.</strong>
 		{% else %}		
-		<div id="collection_frontpage">		
+		<div id="collection_collection">		
   		{% for product in collection.products %}
-  		  <div class="product_frontpage">
+  		  <div class="product brick">
     		  <a href="{{ product.url | within: collection }}">
     		    <span class="product-image-wrapper"><img class="product-image cy" src="{{ product.images.first | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" /></span>
     		    <span class="product-name">{{ product.title }}</span>
-            <span class="featured-price">{% if product.compare_at_price_max > product.price %}<em>was {{ product.compare_at_price_max | money }}</em>{% endif %}<strong>{{ product.price  | money }}</strong></span><br /><span class="small button details">DETAILS</span>
+            <span class="featured-price">{% if product.compare_at_price_max > product.price %}<em>was {{ product.compare_at_price_max | money }}</em>{% endif %}<strong>{{ product.price  | money }}</strong></span>
     		  </a>
   		  </div>		
   		{% endfor %}
 		</div>	
 		<script type="text/javascript" charset="utf-8">
     $(function(){
-
-       var $container = $('#collection_frontpage');
-
-
+       var $container = $('#collection_collection');
        $container.imagesLoaded( function(){
          $container.masonry({
-           itemSelector : '.product_frontpage',
+           itemSelector : '.brick',
            columnWidth: 230
          });
        });
-
      });
-
     </script>
 			{% if paginate.pages > 1 %}
   		<div id="pagination">

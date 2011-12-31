@@ -1,6 +1,4 @@
-<div id="full-width">
-	
-<div id="cart">
+<div id="cart" class="sixteen columns">
 	
 	<h2>My Cart</h2>{% if cart.item_count > 0 %}
 	<form action="/cart" method="post" name="cartform">
@@ -70,7 +68,5 @@
 	
 </form>{% else %}
 <p id="empty">Your shopping cart is empty. <a href="/collections/all">Continue shopping...</a></p>{% endif %}
-
-</div>
 
 </div>

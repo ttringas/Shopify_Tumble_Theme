@@ -16,12 +16,13 @@
   {% endif %}
   <div id="collection_frontpage">
     {% for link in linklists.front-page.links %}
-      <div class="product_frontpage">
+      <div class="brick {% if link.type == 'product_link' %}product{% endif %}">
       {% if link.type == 'product_link' %}
+      <a href="{{ link.object.url }}" title="see more detail on {{ link.object.title }}">
       <img src="{{ link.object.featured_image | product_img_url: 'large' }}" >
       <span class="product_title">{{ link.object.title }}</span>
       <span class="product_price">{{ link.object.price | money }}</span>
-      <span class="product_more"><a href="{{ link.object.url }}" title="see more detail on {{ link.object.title }}">View</a></span>
+      </a>
       {% elsif link.type == 'page_link' %}
       <span class="front_page_quote">{{ link.object.content }}</span>
       {% endif %}
@@ -37,7 +38,7 @@
 
      $container.imagesLoaded( function(){
        $container.masonry({
-         itemSelector : '.product_frontpage',
+         itemSelector : '.brick',
          columnWidth: 230
        });
      });

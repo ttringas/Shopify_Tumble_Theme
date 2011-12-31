@@ -79,7 +79,7 @@
           </a>
         </div><!-- #logo -->
         <div class="eight columns cart_top">
-          <p>{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} <a href="#">{{ cart.total_price | money }} </a><a href="#" class="cart_button">Cart</a></p>
+          <p><a href="/cart">{{ cart.total_price | money }} </a><a href="/cart" class="cart_button">Cart</a></p>
           <form id="search" action="/action"  value="{% if search.performed %}{{ search.terms | escape | downcase }}{% endif %}">
             <input type="text" name="q" class="search" placeholder="search and hit enter...">
           </form>
@@ -124,7 +124,7 @@
                 </ul>
               </div><!-- #social -->
           <div id="newsletter" class="eight columns omega">
-            <h3>Join our Newsletter</h3>
+            <h3>Join our newsletter</h3>
             <div id="mc_embed_signup">
             <form action="http://solarlist.us2.list-manage1.com/subscribe/post?u=535462c03be0e12f3a7dd7a34&amp;id=000b73eb17" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
             <div class="mc-field-group">
