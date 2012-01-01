@@ -1,13 +1,17 @@
+{% case settings.frontpage_banner_select %}
+{% when 'slider' %}
 <div class="sixteen columns flexslider slider_frontpage">
   <ul class="slides">
-    <li>{{ "sliderimg1.jpg" | asset_url | img_tag }}</li>
-    <li>{{ "sliderimg2.jpg" | asset_url | img_tag }}</li>
-    <li>{{ "sliderimg3.jpg" | asset_url | img_tag }}</li>
-    <li>{{ "sliderimg4.jpg" | asset_url | img_tag }}</li>
-    <li>{{ "sliderimg5.jpg" | asset_url | img_tag }}</li>
+    <li><a href="{{ settings.slide_link_1 }}">{{ "slide_img_1.png" | asset_url | img_tag }}<p class="flex-caption no-underline">{{ settings.slide_caption_1 | escape }}</p></a></li>
+    <li><a href="{{ settings.slide_link_2 }}">{{ "slide_img_2.png" | asset_url | img_tag }}<p class="flex-caption no-underline">{{ settings.slide_caption_2 | escape }}</p></a></li>
+    <li><a href="{{ settings.slide_link_3 }}">{{ "slide_img_3.png" | asset_url | img_tag }}<p class="flex-caption no-underline">{{ settings.slide_caption_3 | escape }}</p></a></li>
+    <li><a href="{{ settings.slide_link_4 }}">{{ "slide_img_4.png" | asset_url | img_tag }}<p class="flex-caption no-underline">{{ settings.slide_caption_4 | escape }}</p></a></li>
+    <li><a href="{{ settings.slide_link_5 }}">{{ "slide_img_5.png" | asset_url | img_tag }}<p class="flex-caption no-underline">{{ settings.slide_caption_5 | escape }}</p></a></li>
   </ul>
 </div><!-- #slider_frontpage -->
-
+{% when 'single' %}
+{% else %}
+{% endcase %}
 <div class="sixteen columns clearfix right_col_frontpage">
   {% if settings.message_bar_frontpage %}
   <div id="message_bar_frontpage">

@@ -7,7 +7,7 @@
 	<legend>Logo</legend>
 	  <table>
 	    <tr>
-	      <td><label for="use_logo_image">Use a custom site logo?</label></td>
+	      <td><label for="use_logo_image">Use a custom site logo?<br/><small>(defaults to shop name)</small></label></td>
 	      <td><input type="checkbox" id="use_logo_image" name="use_logo_image" data-max-height="135" data-max-width="480"/></td>
 	    </tr>
 	    <tr>
@@ -23,7 +23,7 @@
 	<legend>Home Page</legend>
   <table>
    <tr>
-    	  <td><label for="message_bar_frontpage">Show Message box above tumble? <small>(This is where you can add custom text or images above the tumble but below the carousel)</small></label></td>
+    	  <td><label for="message_bar_frontpage">Show Message box above tumble? <br/><small>(This is where you can add custom text or images above the tumble but below the carousel)</small></label></td>
 		  <td><input type="checkbox" id="message_bar_frontpage" name="message_bar_frontpage" value="0" /></td>
 	</tr>
     <tr>
@@ -59,12 +59,143 @@
 		  <td><input type="text" id="home_banner_button_title" name="home_banner_button_title" class="text" value=""/></td>
 		</tr>
 		<tr>
-		<td><label for="home_banner_img">Upload a featured image <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
+    	<td><label for="frontpage_banner_select">On front page show:</label></td>
+    	<td>
+      	<select name="frontpage_banner_select" id="frontpage_banner_select" value="--">
+        	<option value="slider">Slide show</option>
+        	<option value="single">Single image</option>
+        	<option value="none">None</option>
+      	</select>
+    	</td>
+  	</tr>
+		<br/>  
+		<strong>Settings for Slide Show</strong>
+			<tr>
+      	<td><label for="slide_caption_position">Position captions for slide show:</label></td>
+      	<td>
+        	<select name="slide_caption_position" id="slide_caption_position">
+          	<option value="none">None</option>
+          	<option value="tl">Top Left</option>
+          	<option value="tr">Top Right</option>
+          	<option value="bl">Bottom Left</option>
+          	<option value="br">Bottom Right</option>
+        	</select>
+      	</td>
+    	</tr>
+		<tr>
+		<td><label for="slide_img_1">Upload the image for slide #1 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
 		<td>
-		  <input type="file" id="home_banner_img" name="home-banner-img.png"  data-max-width="360" data-max-height="360" />
+		  <input type="file" id="slide_img_1" name="slide_img_1.png"  data-max-width="940" data-max-height="400" />
 		</td>
 		</tr>
-		
+		<tr>
+      <td>
+         <label for="slide_caption_1">Caption for slide #1</label>
+      </td>
+      <td>
+         <textarea name="slide_caption_1" cols="60" rows="5" id="slide_caption_1" value="" />
+      </td>
+    </tr>
+		<tr>
+      <td>
+         <label for="slide_link_1">Link for slide #1</label>
+      </td>
+      <td>
+         <input type="text" id="slide_link_1" name="slide_link_1" class="text" value=""/>
+      </td>
+    </tr>
+		<br/>
+		<tr>
+		<td><label for="slide_img_2">Upload the image for slide #2 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
+		<td>
+		  <input type="file" id="slide_img_2" name="slide_img_2.png"  data-max-width="940" data-max-height="400" />
+		</td>
+		</tr>
+		<tr>
+      <td>
+         <label for="slide_caption_2">Caption for slide #2</label>
+      </td>
+      <td>
+         <textarea name="slide_caption_2" cols="60" rows="5" id="slide_caption_2" value="" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <label for="slide_link_2">Link for slide #2</label>
+      </td>
+      <td>
+         <input type="text" id="slide_link_2" name="slide_link_2" class="text" value=""/>
+      </td>
+    </tr>
+		<br/>
+		<tr>
+		<td><label for="slide_img_3">Upload the image for slide #3 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
+		<td>
+		  <input type="file" id="slide_img_3" name="slide_img_3.png"  data-max-width="940" data-max-height="400" />
+		</td>
+		</tr>
+		<tr>
+      <td>
+         <label for="slide_caption_3">Caption for slide #3</label>
+      </td>
+      <td>
+         <textarea name="slide_caption_3" cols="60" rows="5" id="slide_caption_3" value="" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <label for="slide_link_3">Link for slide #3</label>
+      </td>
+      <td>
+         <input type="text" id="slide_link_3" name="slide_link_3" class="text" value=""/>
+      </td>
+    </tr>
+		<br/>
+		<tr>
+		<td><label for="slide_img_4">Upload the image for slide #4 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
+		<td>
+		  <input type="file" id="slide_img_4" name="slide_img_4.png"  data-max-width="940" data-max-height="400" />
+		</td>
+		</tr>
+		<tr>
+      <td>
+         <label for="slide_caption_4">Caption for slide #4</label>
+      </td>
+      <td>
+         <textarea name="slide_caption_4" cols="60" rows="5" id="slide_caption_4" value="" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <label for="slide_link_4">Link for slide #4</label>
+      </td>
+      <td>
+         <input type="text" id="slide_link_4" name="slide_link_4" class="text" value=""/>
+      </td>
+    </tr>
+		<br/>
+		<tr>
+		<td><label for="slide_img_5">Upload the image for slide #5 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
+		<td>
+		  <input type="file" id="slide_img_5" name="slide_img_5.png"  data-max-width="940" data-max-height="400" />
+		</td>
+		</tr>
+		<tr>
+      <td>
+         <label for="slide_caption_5">Caption for slide #5</label>
+      </td>
+      <td>
+         <textarea name="slide_caption_5" cols="60" rows="5" id="slide_caption_5" value="" />
+      </td>
+    </tr>
+		<tr>
+      <td>
+         <label for="slide_link_5">Link for slide #5</label>
+      </td>
+      <td>
+         <input type="text" id="slide_link_5" name="slide_link_5" class="text" value=""/>
+      </td>
+    </tr>
   </table>
 </fieldset>
 
@@ -144,15 +275,6 @@
       <td><label for="navigation_hover_color">Navigation hover color</label></td>
       <td><input id="navigation_hover_color" name="navigation_hover_color" class="color" value="#ffffff" /></td>
     </tr>
-		<tr>
-    	<td><label for="navigation_align">Align navigation left or right?</label></td>
-    	<td>
-      	<select class="align" name="navigation_align" id="navigation_align">
-        	<option value="align_left">Left</option>
-					<option value="align_right" selected="selected">Right</option>
-      	</select>
-    	</td>
-  	</tr>
 	</table>
 </fieldset>
 
