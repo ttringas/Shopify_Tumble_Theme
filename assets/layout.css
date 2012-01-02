@@ -9,7 +9,7 @@
 
 /* Table of Content
 ==================================================
-	#Site Styles
+    #Site Styles
 	#Page Styles
 	#Media Queries
 	#Font-Face */
@@ -30,7 +30,54 @@
 	@media only screen and (min-width: 768px) and (max-width: 959px) {}
 
 	/* All Mobile Sizes (devices and browser) */
-	@media only screen and (max-width: 767px) {}
+	@media only screen and (max-width: 767px) {
+	  .logo {
+      text-align: center; 
+     }
+
+     .cart_top {
+       text-align: center;
+     }
+
+     #search {
+       float: none;
+       margin: auto;
+     }
+
+     #nav ul li {
+       width: 100%;
+       clear: both;
+       text-align: center;
+       border-bottom: 1px solid #999;
+     }
+
+     .product {
+       text-align: center;
+     }
+
+     .brick {
+       width: 95%;
+       position: relative;
+       margin: auto;
+       float: none;
+     }
+
+     #first-image {
+      display: none; 
+     }
+
+     #product-photos ul li {
+       margin: 25px auto;
+     }
+
+     #product-description h2 {
+       float: left;
+     }
+
+     #social {
+       text-align: center;
+     }
+	}
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {}

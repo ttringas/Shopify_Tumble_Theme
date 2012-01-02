@@ -10,8 +10,8 @@ use="default"
 
 ; my development shop
 [default]
-api_key="2cfe0a18472610ec91ab26902af2f2bc"
-password="852206f5125a17153ba342fce1d183f6"
+api_key="514c87175a168e8f8ae0cd081319ea16"
+password="fe7ebea81ea519a43f5d02f4be17cb75"
 store="stiedemann-ziemann-and-witting4358.myshopify.com"
 
 ; and the live shop

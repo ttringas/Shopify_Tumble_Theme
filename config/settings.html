@@ -30,46 +30,23 @@
           <td><label for="message_bar_frontpage_page">What page contains the content for the message box?</label></td>
           <td><select id="message_bar_frontpage_page" class="page" name="message_bar_frontpage_page" value="None" /></td>
     </tr>
-    <tr>
-		  <td><label for="home_banner">Enable homepage banner?</label></td>
-		  <td><input type="checkbox" id="home_banner" name="home_banner" value="1" /></td>
-	</tr>
-    <tr>
-		  <td><label for="home_banner_title">Title text for homepage banner</label></td>
-		  <td><textarea class="text" id="home_banner_title" name="home_banner_title" value=""/></td>
-		</tr>
-		<tr>
-		  <td><label for="banner_title_color">Color of title text for homepage banner</label></td>
-		  <td><input type="text" id="banner_title_color" name="banner_title_color" class="color" value="#d9d7ad"/></td>
-		</tr>
-		<tr>
-		  <td><label for="home_banner_description">Description text for homepage banner</label></td>
-		  <td><textarea class="text" id="home_banner_description" name="home_banner_description" value=""/></td>
-		</tr>
-		<tr>
-		  <td><label for="banner_p_color">Color of description text for homepage banner</label></td>
-		  <td><input type="text" id="banner_p_color" name="banner_p_color" class="color" value="#ffffff"/></td>
-		</tr>
-		<tr>
-		  <td><label for="home_banner_button">Enable button on homepage banner?</label></td>
-		  <td><input type="checkbox" id="home_banner_button" name="home_banner_button" value="1" /></td>
-		</tr>
-		<tr>
-		  <td><label for="home_banner_button_title">Title for button on homepage banner</label></td>
-		  <td><input type="text" id="home_banner_button_title" name="home_banner_button_title" class="text" value=""/></td>
-		</tr>
 		<tr>
     	<td><label for="frontpage_banner_select">On front page show:</label></td>
     	<td>
       	<select name="frontpage_banner_select" id="frontpage_banner_select" value="--">
         	<option value="slider">Slide show</option>
-        	<option value="single">Single image</option>
+        	<option value="banner">Banner image</option>
         	<option value="none">None</option>
       	</select>
     	</td>
   	</tr>
 		<br/>  
-		<strong>Settings for Slide Show</strong>
+		<tr>
+		<td><label for="banner_img">Upload the banner image<br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
+		<td>
+		  <input type="file" id="banner_img" name="banner_img.png"  data-max-width="940" data-max-height="400" />
+		</td>
+		</tr>    
 			<tr>
       	<td><label for="slide_caption_position">Position captions for slide show:</label></td>
       	<td>
@@ -280,52 +257,88 @@
 
 <fieldset>
   <legend>Buttons</legend>
-
-  <h3>Main Button</h3>
+    <h3>Go to Cart Button</h3>
+    <table>
+    <tr>
+      <td><label for="cart_btn_text">Text to show in cart button</label></td>
+      <td><input type="text" id="cart_btn_text" name="cart_btn_text" class="text" value=""/></td>
+    </tr>  
+    <tr>
+    	<td><label for="cart_btn_color">Select the color</label></td>
+    	<td>
+      	<select name="cart_btn_color" id="cart_btn_color">
+        	<option value="blue">Blue</option>
+        	<option value="red">Red</option>
+        	<option value="green">Green</option>
+        	<option value="gray">Gray</option>
+        	<option value="cart_btn_custom">Custom</option>
+      	</select>
+    	</td>
+  	</tr>
+    </table>
+  <h3>Custom Cart Button Colors</h3>
 	<table>
     <tr>
-      <td><label for="main_button_bg_color">Background color</label></td>
-      <td><input id="main_button_bg_color" name="main_button_bg_color" class="color" value="#ff6a00" /></td>
+      <td><label for="cart_btn_color_bg">Background color</label></td>
+      <td><input id="cart_btn_color_bg" name="cart_btn_color_bg" class="color" value="#ff6a00" /></td>
     </tr>
     <tr>
-      <td><label for="main_button_hover_color">Hover color</label></td>
-      <td><input id="main_button_hover_color" name="main_button_hover_color" class="color" value="#ff7e14" /></td>
+      <td><label for="cart_btn_color_hover">Hover color</label></td>
+      <td><input id="cart_btn_color_hover" name="cart_btn_color_hover" class="color" value="#ff7e14" /></td>
     </tr>
 		<tr>
-      <td><label for="main_button_text_color">Text color</label></td>
-      <td><input id="main_button_text_color" name="main_button_text_color" class="color" value="#131820" /></td>
+      <td><label for="cart_btn_color_text">Text color</label></td>
+      <td><input id="cart_btn_color_text" name="cart_btn_color_text" class="color" value="#131820" /></td>
     </tr>
 		<tr>
-		  <td><label for="main_button_text_shadow">Text shadow color</label></td>
+		  <td><label for="cart_btn_color_shadow">Text shadow color</label></td>
 		  <td>
-		    <select name="main_button_text_shadow" id="main_button_text_shadow">
-		      <option value="1" selected="selected">White</option>
-		      <option value="2">Black</option>
+		    <select name="cart_btn_color_shadow" id="cart_btn_color_shadow">
+		      <option value="#fff" selected="selected">White</option>
+		      <option value="#333">Black</option>
 		    </select>
 		  </td>
 		</tr>
   </table>
-
-	<h3>Alternate Button</h3>
+    <h3>Buy and Checkout Buttons</h3>
+    <table>
+    <tr>
+      <td><label for="buy_btn_text">Text to show in add to cart button</label></td>
+      <td><input type="text" id="buy_btn_text" name="buy_btn_text" class="text" value=""/></td>
+    </tr>  
+    <tr>
+    	<td><label for="buy_btn_color">Select the color</label></td>
+    	<td>
+      	<select name="buy_btn_color" id="buy_btn_color">
+        	<option value="blue">Blue</option>
+        	<option value="red">Red</option>
+        	<option value="green">Green</option>
+        	<option value="gray">Gray</option>
+        	<option value="buy_btn_custom">Custom</option>
+      	</select>
+    	</td>
+  	</tr>
+    </table>
+  <h3>Custom Buy and Checkout Button Colors</h3>
 	<table>
     <tr>
-      <td><label for="secondary_button_bg_color">Background color</label></td>
-      <td><input id="secondary_button_bg_color" name="secondary_button_bg_color" class="color" value="#3f4e60" /></td>
+      <td><label for="buy_btn_color_bg">Background color</label></td>
+      <td><input id="buy_btn_color_bg" name="buy_btn_color_bg" class="color" value="#ff6a00" /></td>
     </tr>
     <tr>
-      <td><label for="secondary_button_hover_color">Hover color</label></td>
-      <td><input id="secondary_button_hover_color" name="secondary_button_hover_color" class="color" value="#4f6279" /></td>
+      <td><label for="buy_btn_color_hover">Hover color</label></td>
+      <td><input id="buy_btn_color_hover" name="buy_btn_color_hover" class="color" value="#ff7e14" /></td>
     </tr>
 		<tr>
-      <td><label for="secondary_button_text_color">Text color</label></td>
-      <td><input id="secondary_button_text_color" name="secondary_button_text_color" class="color" value="#ffffff" /></td>
+      <td><label for="buy_btn_color_text">Text color</label></td>
+      <td><input id="buy_btn_color_text" name="buy_btn_color_text" class="color" value="#131820" /></td>
     </tr>
 		<tr>
-		  <td><label for="alt_button_text_shadow">Text shadow color</label></td>
+		  <td><label for="buy_btn_color_shadow">Text shadow color</label></td>
 		  <td>
-		    <select name="alt_button_text_shadow" id="alt_button_text_shadow">
-		      <option value="1">White</option>
-		      <option value="2" selected="selected">Black</option>
+		    <select name="buy_btn_color_shadow" id="buy_btn_color_shadow">
+		      <option value="#fff" selected="selected">White</option>
+		      <option value="#333">Black</option>
 		    </select>
 		  </td>
 		</tr>
@@ -447,7 +460,7 @@
   </table>
 </fieldset>
 <fieldset>
-  <legend>Social</legend>
+  <legend>Social and Mailchimp</legend>
   <table>
      <tr>
 	      <td><label for="show_tweet">Show tweet button?</label></td>
@@ -458,13 +471,17 @@
 		  <td><input type="text" id="shop_twitter" name="shop_twitter" class="text" value=""/></td>
     </tr>
     <tr>
-	      <td><label for="show_fb">Show facebook like button?</label></td>
-	      <td><input type="checkbox" id="show_fb" name="show_fb" data-max-height="135" data-max-width="480"/></td>
-	    </tr>
+      <td><label for="show_fb">Show facebook like button?</label></td>
+      <td><input type="checkbox" id="show_fb" name="show_fb" data-max-height="135" data-max-width="480"/></td>
+    </tr>
     <tr>
-	      <td><label for="show_plusone">Show google plus one button?</label></td>
-	      <td><input type="checkbox" id="show_plusone" name="show_plusone" data-max-height="135" data-max-width="480"/></td>
-	    </tr>
+      <td><label for="show_plusone">Show google plus one button?</label></td>
+      <td><input type="checkbox" id="show_plusone" name="show_plusone" data-max-height="135" data-max-width="480"/></td>
+    </tr>
+    <tr>
+      <td><label for="mc_url">Enter the URL for your Mailchimp account</label></td>
+      <td><input type="text" name="mc_url" value="" id="mc_url" /></td>
+    </tr>
   </table>
 </fieldset>
 

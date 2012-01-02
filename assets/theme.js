@@ -1,3 +1,4 @@
+if (screen.width > 700) {
 var $container = $('#collection');
 $(window).resize(function(){
     $container.imagesLoaded(function(){
@@ -6,3 +7,4 @@ $(window).resize(function(){
       });
     });
 });
+}

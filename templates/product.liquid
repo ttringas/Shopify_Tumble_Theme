@@ -3,6 +3,7 @@
 </div>
 
 <div id="product-photos" class="eight columns">
+    <a href="previous.html" title="back to browsing" onClick="history.back();return false;">&laquo; Back to browsing</a>
     <div id="first-image">
         <a href="{{ product.images.first | product_img_url: 'large' }}"><img src="{{ product.images.first | product_img_url: 'large' }}"  /></a>
     </div>
@@ -32,14 +33,14 @@
         {% endfor %}
       </select>   
     </div><!-- product variants -->  
-    <div class="dotted-divider"></div>
 		<div class="current-price">
 			<div class="variant-price price">
         <div class="price-field"></div>
       </div>
 		</div>
-		<input type="submit" class="large button main" name="add" value="Add to Shopping Cart" id="purchase" />
+		<input type="submit" class="btn {{ settings.buy_btn_color }} buy_btn" name="add" value="{{ settings.buy_btn_text }}" id="purchase" />
   </form>
+  
 
 
   {% else %}  
@@ -48,7 +49,7 @@
     </div><!-- product variants -->  
     <input  type="hidden" id="{{ variant.id }}" name="id" value="{{ product.variants[0].id }}" />
 		<div class="current-price">{{ product.price | money_with_currency }}</div>
-		<input type="submit" class="large button main" name="add" value="Add to Shopping Cart" id="purchase" />
+		<input type="submit" class="btn {{ settings.buy_btn_color }} buy_btn" name="add" value="{{ settings.buy_btn_text }}" id="purchase" />
   </form>
   {% endif %}
 
@@ -56,17 +57,39 @@
   {% else %}
   <p><strong>This product is temporarily unavailable</strong></p>
   {% endif %}
-
+  <a href="#" title="Share" class="reveal_share">Share this item</a>
+  <ul class="product_share">
+    {% if settings.show_tweet == true %}<li><a href="https://twitter.com/share" class="twitter-share-button" data-via="{{ settings.shop_twitter }}" data-lang="en">Tweet</a></li>{% endif %}
+    {% if settings.show_fb == true %}<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>{% endif %}
+    {% if settings.show_plusone == true %}<li><g:plusone size="medium"></g:plusone></li>{% endif %}
+    <li><a href="http://pinterest.com/pin/create/button/?url={{ product.url }}&media={{ product.featured_image }}" class="pin-it-button" count-layout="horizontal">Pin It</a></li>
+    <li><a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url('http://platform.tumblr.com/v1/share_1.png') top left no-repeat transparent;">Share on Tumblr</a></li>
+  </ul>
 	<div style="clear: both;"></div>
 	
 	<p>{{ product.description }} </p>
 	
-	<div class="dotted-divider"></div>
-	<div class="see-more"><p>&lsaquo; See more {{ product.type | link_to_type }}. </p></div>
+	<div class="product_tags"><p>{% if product.tags.size > 1 %}
+	        Tagged as: 
+	        {% for tag in product.tags %}<span class="tag">{{ tag | link_to_tag: tag }}, </span>{% endfor %}
+	        {% elsif product.tags.size == 1 %}
+	        Tagged as: 
+	        {% for tag in product.tags %}<span class="tag">{{ tag | link_to_tag: tag }}</span>{% endfor %}
+	        {% else %}{% endif %}</p></div>
+	<div class="product_type"><p>See more: {{ product.type | link_to_type }}</p></div>
+	<div class="product_vendor"><p>More from: <a href="{{ product.vendor | url_to_vendor }}">{{ product.vendor }}</a></p></div>
 	
 	
 </div>
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+  $('.product_share').hide();
+  $('.reveal_share').click(function(){
+    $('.product_share').slideToggle('slow');
+  });
+});
 
+</script>
 <script type="text/javascript">
 // <![CDATA[  
 var selectCallback = function(variant, selector) {
@@ -106,4 +129,7 @@ jQuery(document).ready(function() {
 
 // ]]>
 </script>
+<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>
+
 

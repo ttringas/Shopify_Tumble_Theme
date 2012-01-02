@@ -4,17 +4,6 @@
 	
 	<h3 class="featured-products-title">{{ collection.title }}</h3>
 	
-	{% if settings.product_tags %}
-	    {% if collection.all_tags and collection.all_tags.size != 0 %}
-        <ul class="product-tag">
-	       <li class="product-tag-title">Product Tags:</li>
-	       {% for tag in collection.all_tags %}
-	       <li class="product-tag-item">{{ tag | link_to_tag: tag }}</li>
-           {% endfor %}
-	    </ul>
-	    {% endif %}
-	{% endif %}
-	
 	{% if collection.description %}
 	<div id="catalog-description">
 		<p>{{ collection.description }}</p>
@@ -28,9 +17,12 @@
   		{% for product in collection.products %}
   		  <div class="product brick">
     		  <a href="{{ product.url | within: collection }}">
-    		    <span class="product-image-wrapper"><img class="product-image cy" src="{{ product.images.first | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" /></span>
-    		    <span class="product-name">{{ product.title }}</span>
-            <span class="featured-price">{% if product.compare_at_price_max > product.price %}<em>was {{ product.compare_at_price_max | money }}</em>{% endif %}<strong>{{ product.price  | money }}</strong></span>
+    		    <span class="product-image-wrapper"><img class="product-image" src="{{ product.images.first | product_img_url: 'medium' }}" alt="{{ product.title | escape }}" /></span>
+    		    <div class="brick_description">
+    		    <span class="product_title">{{ product.title }}</span><br/>
+            <span class="featured_price">{% if product.compare_at_price_max > product.price %}<span class="was_price"><del>{{ product.compare_at_price_max | money }}</del></span>{% endif %} <strong>{{ product.price  | money }}</strong></span>
+            {% if product.tags contains 'sale' %}<span class="sale">Sale</span>{% endif %}
+            </div>
     		  </a>
   		  </div>		
   		{% endfor %}
@@ -47,7 +39,7 @@
      });
     </script>
 			{% if paginate.pages > 1 %}
-  		<div id="pagination">
+  		<div class="pagination">
   			<ul>
   				<li>{{ paginate | default_pagination }}</li>
   			</ul>
