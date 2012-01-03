@@ -51,7 +51,8 @@
 		{{ "jquery.flexslider-min.js" | asset_url | script_tag }}
 		{{ "shop.js" | asset_url | script_tag }}
 		{{ "bootstrap-modal.js" | asset_url | script_tag }}
-        {{ "bootstrap-dropdown.js" | asset_url | script_tag }}
+    {{ "bootstrap-dropdown.js" | asset_url | script_tag }}
+    {{ "jquery.fittext.js" | asset_url | script_tag }}
     <!-- Initiate flexslider -->
 		<script type="text/javascript" charset="utf-8">
       $(window).load(function() {
@@ -70,17 +71,20 @@
     }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
         <div id="logo" class="twelve columns">
-          <a href="/" title="">
+          
             {% if settings.use_logo_image == true %} 
               <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" /> 
             {% else %} 
-              <h1>{{ shop.name }}</h1> 
+              <h1 id="logo_text">{{ shop.name }}</h1> 
             {% endif %}
-          </a>
+          
         </div><!-- #logo -->
+        <script type="text/javascript" charset="utf-8">
+          $('#logo_text').fitText(1.5);
+        </script>
         <div id="cart_top" class="four columns">
           <p><a href="/cart">{{ cart.total_price | money }} </a><a href="/cart" class="btn {{settings.cart_btn_color}}">{{settings.cart_btn_text}}</a></p>
-          <form id="search" action="/action"  value="{% if search.performed %}{{ search.terms | escape | downcase }}{% endif %}">
+          <form id="search" action="/search"  method="GET">
             <input type="text" name="q" class="search" placeholder="search and hit enter...">
           </form>
         </div><!-- #cart_top -->
@@ -150,7 +154,7 @@
         </div><!-- #footer_row_2 -->
         <div id="footer_row_3" class="sixteen columns clearfix">
           <div id="copyright" class="one-third column alpha">
-            <p>&copy; {{ shop.name | escape }} {{ 'now' | date: "%Y" }}</p>
+            <p>&copy; {{ shop.name | escape }} {{ 'now' | date: "%Y" }} {{ powered_by_link }}</p>
           </div><!-- #copyright -->
           <div id="nav_footer" class="two-thirds column omega">            
             <ul>
@@ -158,9 +162,52 @@
               <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
               {% endfor %}
             </ul>
+          </div><!-- nav footer -->
           </div><!-- #footer_row_3 -->
       </div><!-- end footer -->
     </div><!-- #container -->
+    {% if settings.show_contact_form == true %}
+    <a href="#modal-contact-form" title="Contact Us" class="rotate contact_link" data-controls-modal="modal-contact-form" data-backdrop="true" data-keyboard="true">Feedback</a>
+    <div id="modal-contact-form" class="modal hide">
+      <div class="modal-header">
+        <a href="#" class="close">x</a>
+        <h3>{{ settings.greeting_contact_form }}</h3>
+      </div>
+      <div class="modal-body">
+      {% form 'contact' %}
+         {% if form.posted_successfully? %}
+           <p class="success-msg">Thanks for contacting us! We'll get back to you as soon as possible.</p>
+         {% endif %}
+         {% if form.errors %}
+         <p class="error-msg">
+           <ul class="error-list">
+           {% for field in form.errors %}
+             <li>{{ field }} - {{ form.errors.messages[field] }}</li>
+           {% endfor %}
+           </ul>
+         </p>
+         {% endif %} 
+         <ul id="contact-form">
+           <li class="clearfix type-text">
+             <label for="name">Name</label>
+             <input type="text" id="name" name="contact[email]" />
+           </li> 
+           <li class="clearfix type-text">
+             <label for="email">Email</label>
+             <input type="email" id="email" class="email" name="contact[email]" />
+           </li>   
+           <li class="clearfix type-textarea">
+             <label for="message">Message</label>
+             <textarea id="message" name="contact[body]"></textarea>
+           </li>
+           <li class="clearfix type-submit">
+             <input type="submit" class="submit btn blue" value="Send" />
+           </li>
+         </ul>
+       {% endform %}
+       </div><!-- modal-body -->
+     </div><!-- modal-contact-form -->
+     {% endif %}
     <!-- Twitter -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     <!-- Google -->

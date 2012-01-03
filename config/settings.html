@@ -1,6 +1,6 @@
 <div class="section-info">
     <h3>Instructions - Read This First</h3>
-    <p>Below you will find several sections for setting up the Monochrome theme. There are sensible defaults for all settings, but you should still look through all settings carefully. The documentation for the Monochrome theme is found at <a href="http://j.mp/pJukIt" target="_blank">http://j.mp/pJukIt</a>.</p>
+    <p>Below you will find several sections for setting up the Tumble theme. There are sensible defaults for all settings, but you should still look through all settings carefully. The documentation for the Monochrome theme is found at <a href="http://j.mp/pJukIt" target="_blank">http://j.mp/pJukIt</a>.</p>
 </div>
 
 	<fieldset>
@@ -18,29 +18,27 @@
 	    </tr>    
 	  </table>
 	</fieldset>
-	
 	<fieldset>
 	<legend>Home Page</legend>
   <table>
    <tr>
-    	  <td><label for="message_bar_frontpage">Show Message box above tumble? <br/><small>(This is where you can add custom text or images above the tumble but below the carousel)</small></label></td>
-		  <td><input type="checkbox" id="message_bar_frontpage" name="message_bar_frontpage" value="0" /></td>
+  	  <td><label for="message_bar_frontpage">Show Message box above tumble? <br/><small>(This is where you can add custom text or images above the tumble but below the carousel)</small></label></td>
+	    <td><input type="checkbox" id="message_bar_frontpage" name="message_bar_frontpage" value="0" /></td>
 	</tr>
-    <tr>
-          <td><label for="message_bar_frontpage_page">What page contains the content for the message box?</label></td>
-          <td><select id="message_bar_frontpage_page" class="page" name="message_bar_frontpage_page" value="None" /></td>
-    </tr>
-		<tr>
-    	<td><label for="frontpage_banner_select">On front page show:</label></td>
-    	<td>
-      	<select name="frontpage_banner_select" id="frontpage_banner_select" value="--">
-        	<option value="slider">Slide show</option>
-        	<option value="banner">Banner image</option>
-        	<option value="none">None</option>
-      	</select>
-    	</td>
-  	</tr>
-		<br/>  
+  <tr>
+      <td><label for="message_bar_frontpage_page">What page contains the content for the message box?</label></td>
+      <td><select id="message_bar_frontpage_page" class="page" name="message_bar_frontpage_page" value="None" /></td>
+  </tr>
+	<tr>
+  	<td><label for="frontpage_banner_select">On front page show:</label></td>
+  	<td>
+    	<select name="frontpage_banner_select" id="frontpage_banner_select" value="--">
+      	<option value="slider">Slide show</option>
+      	<option value="banner">Banner image</option>
+      	<option value="none">None</option>
+    	</select>
+  	</td>
+	</tr>
 		<tr>
 		<td><label for="banner_img">Upload the banner image<br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
 		<td>
@@ -81,7 +79,6 @@
          <input type="text" id="slide_link_1" name="slide_link_1" class="text" value=""/>
       </td>
     </tr>
-		<br/>
 		<tr>
 		<td><label for="slide_img_2">Upload the image for slide #2 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
 		<td>
@@ -104,7 +101,6 @@
          <input type="text" id="slide_link_2" name="slide_link_2" class="text" value=""/>
       </td>
     </tr>
-		<br/>
 		<tr>
 		<td><label for="slide_img_3">Upload the image for slide #3 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
 		<td>
@@ -127,7 +123,6 @@
          <input type="text" id="slide_link_3" name="slide_link_3" class="text" value=""/>
       </td>
     </tr>
-		<br/>
 		<tr>
 		<td><label for="slide_img_4">Upload the image for slide #4 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
 		<td>
@@ -150,7 +145,6 @@
          <input type="text" id="slide_link_4" name="slide_link_4" class="text" value=""/>
       </td>
     </tr>
-		<br/>
 		<tr>
 		<td><label for="slide_img_5">Upload the image for slide #5 <br />(<strong>Note:</strong> transparent PNG's will look best)</label></td>
 		<td>
@@ -481,6 +475,19 @@
     <tr>
       <td><label for="mc_url">Enter the URL for your Mailchimp account</label></td>
       <td><input type="text" name="mc_url" value="" id="mc_url" /></td>
+    </tr>
+  </table>
+</fieldset>
+<fieldset >
+  <legend>Contact Form</legend>
+  <table>
+    <tr>
+      <td><label for="show_contact_form">Show Contact Form?</label></td>
+      <td><input type="checkbox" name="show_contact_form" value="" id="show_contact_form"/></td>
+    </tr>
+    <tr>
+      <td><label for="greeting_contact_form">Greeting for contact form</label></td>
+      <td><input type="text" name="greeting_contact_form" value="" id="greeting_contact_form"/></td>
     </tr>
   </table>
 </fieldset>

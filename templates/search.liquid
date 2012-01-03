@@ -1,4 +1,4 @@
-<div id="full-width">
+<div id="full-width" class="sixteen columns">
     
   {% if search.performed %}
 	<h2>Searching for "{{search.terms | escape}}"</h2>
@@ -28,7 +28,5 @@
     {% endpaginate %}    
     
   {% endif %}
-
-	<h2>Search</h2>
 
 </div>
