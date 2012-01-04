@@ -586,26 +586,24 @@ jQuery.extend( jQuery.easing,
 
 // Theme specific custom js
 
-//initiate flexslider and fit logo text
-$(window).load(function() {
-  $('.flexslider').flexslider();
-   $('#logo_text').fitText(1.5);
-   if (screen.width > 700){
-   $(function(){
-      var $container = $('#collection_frontpage');
-      $container.imagesLoaded( function(){
-        $container.masonry({
-          itemSelector : '.brick',
-          columnWidth: 230
-        });
-      });
-    });
-  };
-});
-
-
 // simple photo switcher
  $(document).ready(function() {
+   // fit logo text to width
+    $('#logo_text').fitText(1.5);
+    //initiate the flexslider
+   $('.flexslider').flexslider();
+   //masonry the bricks if not on mobile
+   if (screen.width > 767){
+    $(function(){
+       var $container = $('#collection_frontpage');
+       $container.imagesLoaded( function(){
+         $container.masonry({
+           itemSelector : '.brick',
+           columnWidth: 230
+         });
+       });
+     });
+   };
    // Stuff to do as soon as the DOM is ready;
    $('.thumbnails li a').click(function() {
        $('#first-image a').attr('href', $(this).attr('href')).data('rel', $(this).data('rel'));
@@ -620,6 +618,22 @@ $(window).load(function() {
      });
    });
  });
+
+//initiate flexslider and fit logo text
+$(window).load(function() {
+ 
+  //google plus one button
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+  // tweet button
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+});
+
+
+
  
 
 
