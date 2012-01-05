@@ -28,6 +28,7 @@
 		<!-- Stylesheets -->
     {{ "skeleton.css" | asset_url | stylesheet_tag }}
     {{ "stylesheet.css" | asset_url | stylesheet_tag }}
+    <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
 		<!-- Icons -->
 		<link rel="shortcut icon" type="image/x-icon" href="">
     <!-- Custom Fonts -->
@@ -51,21 +52,21 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <div class="container">
-        <div id="logo" class="twelve columns">
-          
+       <div id="cart_top" class="four columns">
+          <p><a href="/cart">{{ cart.total_price | money }} </a><a href="/cart" class="btn {{settings.cart_btn_color}}">{{settings.cart_btn_text}}</a></p>
+        </div><!-- #cart_top -->
+        <div id="logo" class="sixteen columns clearfix">
+          <a href="/" title="home">
             {% if settings.use_logo_image == true %} 
               <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" /> 
             {% else %} 
               <h1 id="logo_text">{{ shop.name }}</h1> 
             {% endif %}
-          
+          </a>
+            <form id="search" action="/search"  method="GET">
+              <input type="text" name="q" class="search" placeholder="search and hit enter...">
+            </form>
         </div><!-- #logo -->        
-        <div id="cart_top" class="four columns">
-          <p><a href="/cart">{{ cart.total_price | money }} </a><a href="/cart" class="btn {{settings.cart_btn_color}}">{{settings.cart_btn_text}}</a></p>
-          <form id="search" action="/search"  method="GET">
-            <input type="text" name="q" class="search" placeholder="search and hit enter...">
-          </form>
-        </div><!-- #cart_top -->
       <div class="sixteen columns contact_bar">
         <ul>
           {% if settings.show_phone == true %}<li><span class="contact_bar_label">Phone </span><a href="tel:1{{ settings.shop_phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' }}" class="phone_link">{{ settings.shop_phone }}</a></li>{% endif %}
@@ -83,7 +84,7 @@
                   {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
                   <ul class="dropdown-menu">
                     {% for l in linklists[child_list_handle].links %}
-                    <a href="{{ l.url }}"><li>{{ l.title }}</li></a>
+                    <li><a href="{{ l.url }}">{{ l.title }}</a></li>
                     {% endfor %}
                   </ul>
                   {% endif %}
@@ -106,16 +107,23 @@
           
         </div><!-- #footer_row_1 -->
         <div id="footer_row_2" class="clearfix">
-         <div id="social" class="eight columns alpha">
-            <h3>Sharing is caring</h3>
+         <div id="social" class="nine columns alpha">
+            <h4>{{ settings.social_headline | escape }}</h4>
             <ul>
               {% if settings.show_tweet == true %}<li><a href="https://twitter.com/share" class="twitter-share-button" data-via="{{ settings.shop_twitter }}" data-lang="en">Tweet</a></li>{% endif %}
               {% if settings.show_fb == true %}<li><div class="fb-like" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false"></div></li>{% endif %}
               {% if settings.show_plusone == true %}<li><g:plusone size="medium"></g:plusone></li>{% endif %}
             </ul>
           </div><!-- #social -->
-          <div id="newsletter" class="eight columns omega">
-            <h3>Join our newsletter</h3>
+          <div id="nav_footer" class="seven columns omega">            
+            <ul>
+              {% for link in linklists.footer.links %}
+              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div><!-- nav footer -->
+          <div id="newsletter" class="nine columns alpha">
+            <h4>{{ settings.email_headline | escape }}</h4>
             <div id="mc_embed_signup">
               <form action="{{ settings.mc_url }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate">
               <div class="mc-field-group">
@@ -130,18 +138,9 @@
             </div>
           </div><!-- #newsletter -->
         </div><!-- #footer_row_2 -->
-        <div id="footer_row_3" class="sixteen columns clearfix">
-          <div id="copyright" class="one-third column alpha">
+          <div id="copyright" class="sixteen columns clearfix alpha">
             <p>&copy; {{ shop.name | escape }} {{ 'now' | date: "%Y" }} {{ powered_by_link }}</p>
           </div><!-- #copyright -->
-          <div id="nav_footer" class="two-thirds column omega">            
-            <ul>
-              {% for link in linklists.footer.links %}
-              <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </div><!-- nav footer -->
-          </div><!-- #footer_row_3 -->
       </div><!-- end footer -->
     </div><!-- #container -->
     {% if settings.show_contact_form == true %}

@@ -588,8 +588,6 @@ jQuery.extend( jQuery.easing,
 
 // simple photo switcher
  $(document).ready(function() {
-   // fit logo text to width
-    $('#logo_text').fitText(1.5);
     //initiate the flexslider
    $('.flexslider').flexslider();
    //masonry the bricks if not on mobile
@@ -611,12 +609,11 @@ jQuery.extend( jQuery.easing,
        return false;
    });
    //share button revealer
-     jQuery(document).ready(function() {
+  
      $('.product_share').hide();
      $('.reveal_share').click(function(){
        $('.product_share').slideToggle('slow');
      });
-   });
  });
 
 //initiate flexslider and fit logo text

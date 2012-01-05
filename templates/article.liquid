@@ -1,13 +1,13 @@
 <!--begin left-column--> 
-<div id="left-column" class="ten columns alpha">
+<div id="blog_left_col" class="ten columns">
 
-	<div class="blog-post">
+	<div class="blog_post">
 	
 	<div class="article">
   	<div>
     	<p class="user"></p>
-			<h2 class="blog-post-title">{{ article.title }}</h2>
-    	<h3 class="blog-post-date"><p>by {{ article.author }} on {{ article.created_at | date: "%B %d, %Y" }}</p></h3>
+			<h2 class="blog_post_title">{{ article.title }}</h2>
+    	<h3 class="blog_post_date"><p>by {{ article.author }} on {{ article.created_at | date: "%B %d, %Y" }}</p></h3>
 			<div class="textile">
 		  	{{ article.content }}
 			</div>
@@ -17,7 +17,7 @@
 
 {% if blog.comments_enabled? %}
 <div id="comments">
-  <h4 class="blog-secondary-title">Comments</h4>
+  <h4 class="blog_secondary_title">Comments</h4>
   <!-- List all comments -->
 
   {% if article.comments == empty %}
@@ -30,11 +30,11 @@
           {{ comment.content }}
         </div>
       
-    	  <div class="comment-details">
+    	  <div class="comment_details">
     		  <em>Posted by {{ comment.author }} on {{ comment.created_at | date: "%B %d, %Y" }}</em>
         </div>
 
-				<div class="dotted-divider"></div>
+				<div class="dotted_divider"></div>
 				
     	</li>
     {% endfor %}
@@ -43,65 +43,57 @@
   
   <!-- Comment Form -->
   {% form article %}
-    <h4 class="blog-secondary-title">Leave a comment</h4>
-    
-    <!-- Check if a comment has been submitted in the last request, and if yes display an appropriate message -->
-    {% if form.posted_successfully? %}
-      {% if blog.moderated? %}
-        <div class="box">
-          Successfully posted your comment.<br />
-          It will have to be approved by the blog owner first before showing up.
-        </div>
-      {% else %}
-        <div class="notice">Successfully posted your comment.</div>
-      {% endif %}
-    {% endif %}
-    
-    {% if form.errors %}
-      <div class="notice error">Not all the fields have been filled out correctly!</div>
-    {% endif %}
-    
-    <table>
-      <tr>
-        <td>
-          <dl>
-            <dt class="{% if form.errors contains 'author' %}error{% endif %}"><label for="comment_author">Your name</label></dt>
-            <dd class="field-padding"><input type="text" id="comment_author" name="comment[author]" value="{{form.author}}" class="{% if form.errors contains 'author' %}input-error{% endif %}" /></dd>
+   <div class="comment_form" id="comment-form">
 
-            <dt class="{% if form.errors contains 'email' %}error{% endif %}"><label for="comment_email">Your email</label></dt>
-            <dd class="field-padding"><input type="text" id="comment_email" name="comment[email]" value="{{form.email}}" class="{% if form.errors contains 'email' %}input-error{% endif %}" /></dd>
-          </dl>
-        </td>
-			</tr>
-      <tr>
-	 			<td>
-          <dl>
-            <dt class="{% if form.errors contains 'body' %}error{% endif %}"><label for="comment_body">Your comment</label></dt>
-            <dd class="field-padding"><textarea id="comment_body" name="comment[body]" cols="50" rows="5" class="{% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea></dd>
-          </dl>
-        </td>
-      </tr>
-    </table>
-    
-    {% if blog.moderated? %}
-      <p class="hint alt">Comments have to be approved before showing up</p>
-    {% endif %}    
-    <div id="submit-comment">
-      <input type="submit" class="large button main"value="Post Comment" /><br /><br />
-    </div>
-  {% endform %}
+     <h2 class="title">Leave a comment</h2>    
+
+     {% if form.posted_successfully? %}
+       {% if blog.moderated? %}
+         <div class="success-msg">
+           Your comment has been successfully submitted. It must be approved before it is published.
+         </div>
+       {% else %}
+         <div class="success-msg">Successfully posted your comment.</div>
+       {% endif %}
+     {% endif %}
+
+     {% if form.errors %}
+       <div class="notice error-msg">Not all the fields have been filled out correctly!</div>
+     {% endif %}
+
+     {% if blog.moderated? %}
+     <p class="notice">Please note: comments must be approved before they are published.</p>
+     {% endif %}   
+
+
+     <div class="clearfix{% if form.errors contains 'author' %} has-error{% endif %}">
+       <label for="comment_author">Name <strong class="req">*</strong></label>
+       <input type="text" id="comment_author" name="comment[author]" size="40" value="{{form.author}}" class="text {% if form.errors contains 'author' %}input-error{% endif %}" />
+     </div>
+     <div class="clearfix{% if form.errors contains 'email' %} has-error{% endif %}">
+       <label for="comment_email">Email <strong class="req">*</strong></label>
+       <input type="text" id="comment_email" name="comment[email]" size="40" value="{{form.email}}" class="text {% if form.errors contains 'email' %}input-error{% endif %}" />
+     </div>
+     <div class="clearfix{% if form.errors contains 'body' %} has-error{% endif %}">
+       <label for="comment_body">Comment <strong class="req">*</strong></label>
+       <textarea id="comment_body" name="comment[body]" cols="40" rows="5" class="text {% if form.errors contains 'body' %}input-error{% endif %}">{{form.body}}</textarea>
+     </div> 
+
+     <input type="submit" value="Post comment" id="comment-submit" class="btn gray" />
+
+     {% endform %}
 </div>
 {% endif %}
 
 </div>
-
+</div>
 </div>
 <!--end left-column-->
 
 <!--begin right-column--> 
-<div id="right-column" class="six columns omega">
+<div id="blog_right_col" class="five columns offset-by-one">
 	
-	<h2 class="right-column-heading"><a class="rss-icon" href="{{ blog.url }}.atom"><img src="{{ 'icon-rss.png' | asset_url }}" width="16" height="16" alt="RSS Feed"></a>Recent Posts</h2>	
+	<h3 class="right-column-heading"><a class="rss-icon" href="{{ blog.url }}.atom"><img src="{{ 'icon-rss.png' | asset_url }}" width="12" height="12" alt="RSS Feed"></a>Recent Posts</h3>	
 	
 	{% for article in blog.articles limit:7 %}
 	<ul>

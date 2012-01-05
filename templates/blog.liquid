@@ -1,5 +1,5 @@
 <!--begin left-column--> 
-<div id="left-column" class="ten columns alpha">
+<div id="blog_left_col" class="ten columns">
 		
 	{% paginate blog.articles by 5 %}
 		{% for article in blog.articles %}
@@ -9,16 +9,16 @@
     	<div class="blog-post">
 				<div>
       	<p class="user"></p>
-  			<h2 class="blog-post-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
-      	<h3 class="blog-post-date"><p>by {{ article.author }} on {{ article.created_at | date: "%B %d, %Y" }} {% if blog.comments_enabled? %}<a class="comments" href="{{article.url}}#comments">Comments ({{ article.comments_count }})</a>{% endif %}</p></h3>
+  			<h2 class="blog_post_title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+      	<h4 class="blog_post_date"><p>by {{ article.author }} on {{ article.created_at | date: "%B %d, %Y" }}</p></h4>
 				<div class="textile">
   		  	{{ article.content }}
   			</div>
     	</div>
     
-  		<div class="blog-details">
+  		<div class="blog_details">
       		<ul>
-						<li class="continue"><a href="{{ article.url }}">Continue Reading</a></li>
+						<li class="continue"><a class="btn gray" href="{{ article.url }}">Continue Reading &raquo;</a></li>
 					</ul>
   		</div>
 			<div style="clear: both"></div>
@@ -39,9 +39,9 @@
 <!--end left-column-->
 
 <!--begin right-column--> 
-<div id="right-column" class="six columns omega">
+<div id="blog_right_col" class="five columns offset-by-one">
 	
-	<h2 class="right-column-heading"><a class="rss-icon" href="{{ blog.url }}.atom"><img src="{{ 'icon-rss.png' | asset_url }}" width="16" height="16" alt="RSS Feed"></a>Recent Posts</h2>
+	<h3 class="blog_right_col_heading"><a class="rss_icon" href="{{ blog.url }}.atom"><img src="{{ 'icon-rss.png' | asset_url }}" width="12" height="12" alt="RSS Feed"></a>Recent Posts</h3>
 	
 	{% for article in blog.articles limit:7 %}
 	<ul>
